@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "*.html linguist-vendored=true\n*.css linguist-vendored=true\n*.scss linguist-vendored=true\n*.sh linguist-vendored=true\n*.Rmd linguist-vendored=false",
+    "created" : 1484181022898.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2526959144",
+    "id" : "F3B1799A",
+    "lastKnownWriteTime" : 1484181072,
+    "last_content_update" : 1484181073000,
+    "path" : "~/Desktop/pu.ggplot/.gitattributes",
+    "project_path" : ".gitattributes",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}

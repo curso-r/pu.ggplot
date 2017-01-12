@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "[![Travis-CI Build Status](https://travis-ci.org/curso-r/pu.train2.svg?branch=master)](https://travis-ci.org/curso-r/pu-ggplot)\n\nggplot\n================\n\nDescrição\n---------\n\nggplot é um pacote do R para fazer gráficos\n\nDependências\n------------\n\nTODO\n----\n",
+    "created" : 1484180673964.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2504754498",
+    "id" : "16291D16",
+    "lastKnownWriteTime" : 1484180722,
+    "last_content_update" : 1484180722673,
+    "path" : "~/Desktop/pu.ggplot/README.md",
+    "project_path" : "README.md",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "markdown"
+}

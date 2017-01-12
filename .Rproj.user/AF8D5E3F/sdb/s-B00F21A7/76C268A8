@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "#!/bin/sh\n\nset -e\n\n[ -z \"${GITHUB_PAT}\" ] && exit 0\n[ \"${TRAVIS_BRANCH}\" != \"master\" ] && exit 0\n\ngit config --global user.email \"abj@abjur.org.br\"\ngit config --global user.name \"ABJ\"\n\ngit clone -b content https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git out\ncd out\ncp -r ../content/* ./\ngit add --all *\ngit commit -m \"Update the PU\" || true\ngit push origin content\n\n",
+    "created" : 1484180847277.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4197562286",
+    "id" : "76C268A8",
+    "lastKnownWriteTime" : 1484180366,
+    "last_content_update" : 1484180366,
+    "path" : "~/Desktop/pu.ggplot/_deploy.sh",
+    "project_path" : "_deploy.sh",
+    "properties" : {
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sh"
+}

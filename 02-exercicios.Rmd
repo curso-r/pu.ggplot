@@ -7,7 +7,7 @@ date: 2016-11-22
 ```{r, message=FALSE, warning=FALSE, include=FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE, 
-  out.width = "60%", out.height = "60%",
+  out.width = "40%", out.height = "40%",
   fig.retina = 2
 )
 ```

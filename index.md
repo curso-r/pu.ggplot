@@ -1,5 +1,6 @@
 ---
 title: ggplot
+date: '2017-01-23'
 ---
 
 
@@ -77,7 +78,7 @@ ggplot(data = mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg))
 ```
 
-<img src="figures//grafico1-1.png" title="plot of chunk grafico1" alt="plot of chunk grafico1" width="60%" height="60%" />
+<img src="figures//grafico1-1.png" title="plot of chunk grafico1" alt="plot of chunk grafico1" width="40%" height="40%" />
 
 Observe que o primeiro argumento da função `ggplot` é um data frame. A função `aes()`
 descreve como as variáveis são mapeadas em aspectos visuais de formas geométricas
@@ -103,7 +104,7 @@ ggplot(data = mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, colour = as.factor(am)))
 ```
 
-<img src="figures//mapear_am-1.png" title="plot of chunk mapear_am" alt="plot of chunk mapear_am" width="60%" height="60%" />
+<img src="figures//mapear_am-1.png" title="plot of chunk mapear_am" alt="plot of chunk mapear_am" width="40%" height="40%" />
 
 Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:
 
@@ -113,7 +114,7 @@ ggplot(mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
 ```
 
-<img src="figures//mapear_cor-1.png" title="plot of chunk mapear_cor" alt="plot of chunk mapear_cor" width="60%" height="60%" />
+<img src="figures//mapear_cor-1.png" title="plot of chunk mapear_cor" alt="plot of chunk mapear_cor" width="40%" height="40%" />
 
 Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
 
@@ -127,7 +128,7 @@ ggplot(mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, colour = cyl, size = wt))
 ```
 
-<img src="figures//mapear_tamanaho-1.png" title="plot of chunk mapear_tamanaho" alt="plot of chunk mapear_tamanaho" width="60%" height="60%" />
+<img src="figures//mapear_tamanaho-1.png" title="plot of chunk mapear_tamanaho" alt="plot of chunk mapear_tamanaho" width="40%" height="40%" />
 
 **Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html) é uma
 boa referência.
@@ -155,7 +156,7 @@ ggplot(mtcars) +
   geom_boxplot(aes(x = as.factor(cyl), y = mpg))
 ```
 
-<img src="figures//unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-7-1.png" title="plot of chunk unnamed-chunk-7" alt="plot of chunk unnamed-chunk-7" width="40%" height="40%" />
 
 **Note** que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
 x do gráfico uma variável do tipo `factor`.
@@ -167,7 +168,7 @@ ggplot(mtcars) +
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ```
 
-<img src="figures//unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-8-1.png" title="plot of chunk unnamed-chunk-8" alt="plot of chunk unnamed-chunk-8" width="40%" height="40%" />
 
 
 ```r
@@ -175,7 +176,7 @@ ggplot(mtcars) +
   geom_bar(aes(x = as.factor(cyl)))
 ```
 
-<img src="figures//unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-9-1.png" title="plot of chunk unnamed-chunk-9" alt="plot of chunk unnamed-chunk-9" width="40%" height="40%" />
 
 <div class='admonition note'>
 <p class='admonition-title'>
@@ -219,7 +220,7 @@ ggplot(mtcars) +
 ## `geom_smooth()` using method = 'loess'
 ```
 
-<img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="60%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="60%" />
+<img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" />
 
 Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
 com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
@@ -236,7 +237,7 @@ ggplot(mtcars) +
 ## `geom_smooth()` using method = 'loess'
 ```
 
-<img src="figures//unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-10-1.png" title="plot of chunk unnamed-chunk-10" alt="plot of chunk unnamed-chunk-10" width="40%" height="40%" />
 
 Desta forma, sobrepusemos os pontos e a linha de suavização. No entanto, duplicamos alguns trechos no nosso código, o que geralmente não é bom. Imagine se você precisar
 mudar a variável do eixo `y`, você precisará trocar o nome da variável em mais de um
@@ -251,7 +252,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 ## `geom_smooth()` using method = 'loess'
 ```
 
-<img src="figures//unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-11-1.png" title="plot of chunk unnamed-chunk-11" alt="plot of chunk unnamed-chunk-11" width="40%" height="40%" />
 
 Veja que isso gera o mesmo gráfico!
 
@@ -266,7 +267,7 @@ ggplot(mtcars, aes(y = mpg, x = disp, colour = as.factor(cyl))) +
   geom_smooth(method = "lm")
 ```
 
-<img src="figures//unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-12-1.png" title="plot of chunk unnamed-chunk-12" alt="plot of chunk unnamed-chunk-12" width="40%" height="40%" />
 
 O `ggplot2` agora desenhou uma reta para cada um dos grupos de pontos e coloriu
 cada grupo de pontos de uma cor diferente. Em alguns casos, você pode querer mapear
@@ -279,7 +280,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
   geom_smooth(method = "lm")
 ```
 
-<img src="figures//unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="40%" height="40%" />
 
 Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.
 
@@ -295,7 +296,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
   geom_point(colour = "red")
 ```
 
-<img src="figures//unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="40%" height="40%" />
 
 A principal diferença aqui é que especificamos o argumento `colour` fora da função
 `aes` como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros 
@@ -307,7 +308,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
   geom_point(colour = "red", size = 2, shape = 3, alpha = 0.5)
 ```
 
-<img src="figures//unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="40%" height="40%" />
 
 ## Facets
 
@@ -324,7 +325,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
   facet_wrap(~am)
 ```
 
-<img src="figures//unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="40%" height="40%" />
 
 No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
 automático/manual.
@@ -343,7 +344,7 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 
-<img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-19-1.png" title="plot of chunk unnamed-chunk-19" alt="plot of chunk unnamed-chunk-19" width="40%" height="40%" />
 
 2. Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
 estéticas se comportam diferente para variáveis categóricas vs. contínuas?
@@ -363,7 +364,7 @@ bp <- ggplot(data=PlantGrowth, aes(x=group, y=weight, fill=group)) + geom_boxplo
 bp
 ```
 
-<img src="figures//unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-21-1.png" title="plot of chunk unnamed-chunk-21" alt="plot of chunk unnamed-chunk-21" width="40%" height="40%" />
 
 ## Removendo totalmente a legenda
 
@@ -381,7 +382,7 @@ bp + guides(fill = FALSE)
 bp + scale_fill_discrete(guide = F)
 ```
 
-<img src="figures//unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="50%" height="60%" /><img src="figures//unnamed-chunk-22-2.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="50%" height="60%" />
+<img src="figures//unnamed-chunk-22-1.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="50%" height="40%" /><img src="figures//unnamed-chunk-22-2.png" title="plot of chunk unnamed-chunk-22" alt="plot of chunk unnamed-chunk-22" width="50%" height="40%" />
 
 
 ```r
@@ -390,7 +391,7 @@ bp + scale_fill_discrete(guide = F)
 bp + theme(legend.position="none")
 ```
 
-<img src="figures//unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-23-1.png" title="plot of chunk unnamed-chunk-23" alt="plot of chunk unnamed-chunk-23" width="40%" height="40%" />
 
 
 ## Alterando a ordem dos itens
@@ -402,13 +403,13 @@ Para alterar a ordem dos itens na legenda do gráfico no `ggplot2`, usamos o com
 bp + scale_fill_discrete(breaks=c("trt1","ctrl","trt2"))
 ```
 
-<img src="figures//unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="40%" height="40%" />
 
 ```r
 bp
 ```
 
-<img src="figures//unnamed-chunk-24-2.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-24-2.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="40%" height="40%" />
 
 Dependendo de os aspectos gráficos (Ex: cores, formatos, preenchimentos) foram especificados você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete` , e assim por diante.
 
@@ -420,7 +421,7 @@ bp + guides(fill = guide_legend(reverse=TRUE))
 bp + scale_fill_discrete(guide = guide_legend(reverse=TRUE))
 ```
 
-<img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="60%" /><img src="figures//unnamed-chunk-25-2.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="60%" />
+<img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="40%" /><img src="figures//unnamed-chunk-25-2.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="40%" />
 
 ## Removendo os títulos da legenda
 
@@ -436,7 +437,7 @@ bp + guides(fill=guide_legend(title=NULL))
 bp + theme(legend.title=element_blank())
 ```
 
-<img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="60%" /><img src="figures//unnamed-chunk-26-2.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="60%" />
+<img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="40%" /><img src="figures//unnamed-chunk-26-2.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="40%" />
 
 ## Modificando texto, cores e rótulos
 
@@ -462,7 +463,7 @@ bp + scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"),
                        labels=c("Control", "Treatment 1", "Treatment 2"))
 ```
 
-<img src="figures//unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="50%" height="60%" /><img src="figures//unnamed-chunk-27-2.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="50%" height="60%" />
+<img src="figures//unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="50%" height="40%" /><img src="figures//unnamed-chunk-27-2.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="50%" height="40%" />
 
 Veja que isso não aletrou o eixo X do gráfico.
 
@@ -476,7 +477,7 @@ Existem inúmeras modificações que podem ser realizadas na aparência da legen
 bp + theme(legend.title = element_text(colour="blue", size=16, face="bold"))
 ```
 
-<img src="figures//unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" width="40%" height="40%" />
 
 
 ```r
@@ -484,7 +485,7 @@ bp + theme(legend.title = element_text(colour="blue", size=16, face="bold"))
 bp + theme(legend.text = element_text(colour="blue", size = 16, face = "bold"))
 ```
 
-<img src="figures//unnamed-chunk-29-1.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-29-1.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="40%" height="40%" />
 
 ## Modificando a posição da legenda
 
@@ -495,7 +496,7 @@ bp + theme(legend.text = element_text(colour="blue", size = 16, face = "bold"))
 bp + theme(legend.position="top")
 ```
 
-<img src="figures//unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="40%" height="40%" />
 
 Também é possível controlar a posição da legenda de forma precisa usando o comando.
 Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
@@ -505,5 +506,5 @@ Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o
 bp + theme(legend.position=c(.5, .5))
 ```
 
-<img src="figures//unnamed-chunk-31-1.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="60%" height="60%" />
+<img src="figures//unnamed-chunk-31-1.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="40%" height="40%" />
 

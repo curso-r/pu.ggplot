@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 library(ggplot2)
 ```
 
+### **Exercício**
+
 1. O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
 
 ```{r}

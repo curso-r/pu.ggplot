@@ -52,7 +52,7 @@ bp + scale_fill_discrete(breaks=c("trt1","ctrl","trt2"))
 bp
 ```
 
-Dependendo de os aspectos gráficos (Ex: cores, formatos, preenchimentos) foram especificados você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete` , e assim por diante.
+Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete`.
 
 Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.
 
@@ -76,7 +76,7 @@ bp + theme(legend.title=element_blank())
 
 ## Modificando texto, cores e rótulos
 
-Para modificar os textos e rótulos das legendas existem duas formas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de `scale`. 
+Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de `scale`. 
 
 Veja algumas modificações que podem ser feitas por meio das funções de `scale`. Como a variável `group` está associada ao atributo `fill`, usamos as funções `scale_fill_xxx`.
 
@@ -121,8 +121,7 @@ bp + theme(legend.text = element_text(colour="blue", size = 16, face = "bold"))
 bp + theme(legend.position="top")
 ```
 
-Também é possível controlar a posição da legenda de forma precisa usando o comando.
-Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
+Também é possível controlar a posição da legenda de forma precisa usando a função `theme()`. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
 
 ```{r}
 bp + theme(legend.position=c(.5, .5))

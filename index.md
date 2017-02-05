@@ -1,6 +1,6 @@
 ---
 title: ggplot
-date: '2017-01-23'
+date: '2017-02-05'
 ---
 
 
@@ -17,7 +17,7 @@ estéticos (cores, formas, tamanho) em formas geométricas (pontos, linhas, barr
 
 Para mais informações sobre a Gramática dos Gráficos, você pode consultar o livro
 [*The Grammar of graphics*](http://www.springer.com/statistics/computational+statistics/book/978-0-387-24544-7), 
-escrito pelo Leland Wilkinson, ou o livro [ggplot2: elegant graphics for data analysis](http://ggplot2.org/book/), do Hadley Wickham. 
+escrito pelo Leland Wilkinson e o livro [ggplot2: elegant graphics for data analysis](http://ggplot2.org/book/), do Hadley Wickham. 
 Um [pdf do livro](http://moderngraphics11.pbworks.com/f/ggplot2-Book09hWickham.pdf) também está disponível.
 
 Para quem quiser se aprofundar mais com o `ggplot2`, o [DataCamp](https://www.datacamp.com/) possui dois cursos
@@ -68,7 +68,7 @@ library(ggplot2)
 ```
 
 No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em inglês),
-sendo que a primeira delas é dada pela função `ggplot` (não tem o "2"). Cada camada
+sendo que a primeira delas é dada pela função `ggplot()` (não tem o "2"). Cada camada
 representa um tipo de mapeamento ou personalização do gráfico. O código abaixo é um
 exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
 
@@ -106,7 +106,7 @@ ggplot(data = mtcars) +
 
 <img src="figures//mapear_am-1.png" title="plot of chunk mapear_am" alt="plot of chunk mapear_am" width="40%" height="40%" />
 
-Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, tambem podemos mapear uma variável contínua à cor dos pontos:
+Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, sendo que pontos vermelhos correspondem à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, também podemos mapear uma variável contínua à cor dos pontos:
 
 
 ```r
@@ -120,7 +120,7 @@ Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul
 
 **Nota**: por *default*, a legenda é insirida no gráfico automaticamente.
 
-Também podemos mapear o tamanho dos pontos à uma variável de interesse:
+Também podemos mapear o tamanho dos pontos a uma variável de interesse:
 
 
 ```r
@@ -139,14 +139,14 @@ Os *geoms* definem qual forma geométrica será utilizada para a visualização 
 dados no gráfico. Como já vimos, a função `geom_point()` gera gráficos de dispersão
 transformando pares (x,y) em pontos. Veja a seguir outros *geoms* bastante utilizados:
 
-- `geom_line`: para linhas definidas por pares (x,y)
-- `geom_abline`: para retas definidas por um intercepto e uma inclinação
-- `geom_hline`: para retas horizontais
-- `geom_boxplot`: para boxplots
-- `geom_histogram`: para histogramas
-- `geom_density`: para densidades
-- `geom_area`: para áreas
-- `geom_bar`: para barras
+- `geom_line` - para linhas definidas por pares (x,y)
+- `geom_abline` - para retas definidas por um intercepto e uma inclinação
+- `geom_hline` - para retas horizontais
+- `geom_boxplot` - para boxplots
+- `geom_histogram` - para histogramas
+- `geom_density` - para densidades
+- `geom_area` - para áreas
+- `geom_bar` - para barras
 
 Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:
 
@@ -183,16 +183,15 @@ ggplot(mtcars) +
 Um padrão para os gráficos
 </p>
 <p>
-Você deve ter percebido que para fazer um gráfico usando `ggplot2` e a gramática
+Você deve ter percebido que, para fazer um gráfico usando `ggplot2` e a gramática
 dos gráficos, existe um padrão:
-
-```
-ggplot(data = <DATA>) + 
-  <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
-```
-
-Para fazer um gráfico, basta substituir o que está entre `<` com um banco de dados,
-uma função geométrica e uma coleção de *mapas estéticos*. Isso será muito útil quando você for fazer o seu próprio gráfico.
+<br> 
+<br>
+ggplot(data = DATA) + GEOM_FUNCTION(mapping = aes(MAPPINGS))
+<br>
+<br>
+Para fazer um gráfico, basta substituir DATA por um banco de dados, GEOM_FUNCTION por
+uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>. Isso será muito útil quando você for fazer o seu próprio gráfico.
 </p>
 </div>
 
@@ -223,9 +222,9 @@ ggplot(mtcars) +
 <img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" />
 
 Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
-com as cilindradas. Já o gráfico da direita, resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
+com as cilindradas. Já o gráfico da direita resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
 
-Esses dois gráficos se completam, e ficam bons juntos. Com o `ggplot2` é muito fácil
+Esses dois gráficos se completam e ficam bons juntos. Com o `ggplot2`, é muito fácil
 sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
 uma combinação de camadas. Veja o código abaixo.
 
@@ -282,7 +281,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 
 <img src="figures//unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="40%" height="40%" />
 
-Note que agora, cada grupo de pontos tem uma cor mas a reta é única, para todos os pontos.
+Agora, cada grupo de pontos tem uma cor, mas a reta é única para todos os pontos.
 
 ## Alterando os padrões do gráfico
 
@@ -299,7 +298,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 <img src="figures//unnamed-chunk-14-1.png" title="plot of chunk unnamed-chunk-14" alt="plot of chunk unnamed-chunk-14" width="40%" height="40%" />
 
 A principal diferença aqui é que especificamos o argumento `colour` fora da função
-`aes` como estávamos fazendo antes. Dessa forma podemos controlar todos os parâmetros 
+`aes`. Dessa forma, podemos controlar todos os parâmetros 
 de cada forma geométrica. 
 
 
@@ -335,6 +334,8 @@ automático/manual.
 
 
 
+
+### **Exercício**
 
 1. O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
 
@@ -411,7 +412,7 @@ bp
 
 <img src="figures//unnamed-chunk-24-2.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="40%" height="40%" />
 
-Dependendo de os aspectos gráficos (Ex: cores, formatos, preenchimentos) foram especificados você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete` , e assim por diante.
+Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete`.
 
 Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.
 
@@ -441,7 +442,7 @@ bp + theme(legend.title=element_blank())
 
 ## Modificando texto, cores e rótulos
 
-Para modificar os textos e rótulos das legendas existem duas formas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de `scale`. 
+Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de `scale`. 
 
 Veja algumas modificações que podem ser feitas por meio das funções de `scale`. Como a variável `group` está associada ao atributo `fill`, usamos as funções `scale_fill_xxx`.
 
@@ -498,8 +499,7 @@ bp + theme(legend.position="top")
 
 <img src="figures//unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="40%" height="40%" />
 
-Também é possível controlar a posição da legenda de forma precisa usando o comando.
-Desta forma ela será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
+Também é possível controlar a posição da legenda de forma precisa usando a função `theme()`. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
 
 
 ```r

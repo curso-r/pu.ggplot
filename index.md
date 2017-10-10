@@ -1,6 +1,6 @@
 ---
-title: ggplot
-date: '2017-02-05'
+title: 'Visualizações'
+date: '2017-10-10'
 ---
 
 

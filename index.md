@@ -109,7 +109,7 @@ Agora que você já sabe como a estrutura de camadas do `ggplot` funciona, vamos
 
 ## Aesthetics
 
-O papel da função `aes()` (de aesthetics, estética em inglês) é indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamnho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você está construindo.
+O papel da função `aes()` (de aesthetics, estética em inglês) é indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você está construindo.
 
 No exemplo anterior, atribuímos aspectos de posição: ao eixo y mapeamos a variável `mpg` (milhas por galão) e ao eixo x a variável `disp` (cilindradas). Note que os valores dos labels não são mapeados por variáveis, mas sim diretamente especificados.
 
@@ -133,9 +133,7 @@ ggplot(mtcars) +
 
 <img src="figures//mapear_cor-1.png" title="plot of chunk mapear_cor" alt="plot of chunk mapear_cor" width="40%" height="40%" />
 
-Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
-
-**Nota**: por *default*, a legenda é insirida automaticamente ao gráfico.
+Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul. Note que, por padrão, a legenda é inserida automaticamente ao gráfico.
 
 Também podemos mapear o tamanho dos pontos a uma variável de interesse:
 
@@ -147,8 +145,13 @@ ggplot(mtcars) +
 
 <img src="figures//mapear_tamanaho-1.png" title="plot of chunk mapear_tamanaho" alt="plot of chunk mapear_tamanaho" width="40%" height="40%" />
 
-**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa é uma
-boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
+Segue abaixo uma lista dos aspectos visuais mais utilizados:
+
+- `color=`: altera a cor de formas que não têm área (pontos e retas).
+- `fill=`: altera a cor de formas com área (barras, caixas, densidades, áreas).
+- `size=`: altera o tamanho de formas.
+- `type=`: altera o tipo da forma, geralmente usada para pontos.
+- `linetype=`: altera o tipo da linha.
 
 Até agora, sempre mapeamos um aspecto estético a uma variável. Muitas vezes 
 queremos apenas modificar um aspecto sem mapeá-lo a variáveis.
@@ -178,18 +181,17 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 
 ## Geoms
 
-Os *geoms* definem qual forma geométrica será utilizada para a visualização dos 
-dados no gráfico. Como já vimos, a função `geom_point()` gera gráficos de dispersão
-transformando pares (x,y) em pontos. Veja a seguir outros *geoms* bastante utilizados:
+Os *geoms* definem qual forma geométrica será utilizada para a visualização das observações. Como já vimos, a função `geom_point()` gera gráficos de dispersão
+transformando pares $(x,y)$ em pontos. Veja a seguir outros *geoms* bastante utilizados:
 
-- `geom_line` - para linhas definidas por pares (x,y)
-- `geom_abline` - para retas definidas por um intercepto e uma inclinação
-- `geom_hline` - para retas horizontais
-- `geom_boxplot` - para boxplots
-- `geom_histogram` - para histogramas
-- `geom_density` - para densidades
-- `geom_area` - para áreas
-- `geom_bar` - para barras
+- `geom_line` - para linhas definidas por pares (x,y).
+- `geom_abline` - para retas definidas por um intercepto e uma inclinação.
+- `geom_hline` - para retas horizontais.
+- `geom_bar` - para barras.
+- `geom_histogram` - para histogramas.
+- `geom_boxplot` - para boxplots.
+- `geom_density` - para densidades.
+- `geom_area` - para áreas.
 
 Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:
 
@@ -201,8 +203,7 @@ ggplot(mtcars) +
 
 <img src="figures//unnamed-chunk-16-1.png" title="plot of chunk unnamed-chunk-16" alt="plot of chunk unnamed-chunk-16" width="40%" height="40%" />
 
-**Note** que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
-x do gráfico uma variável do tipo `factor`.
+Note que para fazer um boxplot para cada grupo, precisamos passar um fator para o aspecto x do gráfico.
 
 
 ```r
@@ -212,6 +213,8 @@ ggplot(mtcars) +
 ```
 
 <img src="figures//unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="40%" height="40%" />
+
+Enquanto o gráfico e dispersão demandam o mapeamento das posições x e y, o histograma requer apenas a posição x, já que, pela definação do gráfico, o eixo mostra a frequência de cada classe. O mesmo acontece com o gráfico de barras:
 
 
 ```r
@@ -238,14 +241,8 @@ uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>
 </p>
 </div>
 
-### Exercícios
-
-1. Rode `ggplot(data = mtcars)`. O que você vê?
-2. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função `nrows`.
-3. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
-4. Faça um gráfico de dispersão de `mpg` por `qsec`
-5. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
-gráfico não é útil?
+**Exercício**: explorar novos `geom()` e mexer nos mapeamentos estéticos desses novos gráficos. [Essa é uma
+boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
 
 ## Combinando gráficos
 
@@ -527,4 +524,15 @@ ggplot(data = mpg) +
 2. Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
 estéticas se comportam diferente para variáveis categóricas vs. contínuas?
 
+3. Rode `ggplot(data = mtcars)`. O que você vê?
+
+4. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
+`nrows`.
+
+5. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+
+6. Faça um gráfico de dispersão de `mpg` por `qsec`.
+
+7. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
+gráfico não é útil?
 

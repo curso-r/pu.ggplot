@@ -214,7 +214,7 @@ ggplot(mtcars) +
 
 <img src="figures//unnamed-chunk-17-1.png" title="plot of chunk unnamed-chunk-17" alt="plot of chunk unnamed-chunk-17" width="40%" height="40%" />
 
-Enquanto o gráfico e dispersão demandam o mapeamento das posições x e y, o histograma requer apenas a posição x, já que, pela definação do gráfico, o eixo mostra a frequência de cada classe. O mesmo acontece com o gráfico de barras:
+Enquanto o gráfico e dispersão demandam o mapeamento das posições x e y, o histograma requer apenas a posição x, já que, pela definição do gráfico, o eixo mostra a frequência de cada classe. O mesmo acontece com o gráfico de barras:
 
 
 ```r
@@ -223,6 +223,9 @@ ggplot(mtcars) +
 ```
 
 <img src="figures//unnamed-chunk-18-1.png" title="plot of chunk unnamed-chunk-18" alt="plot of chunk unnamed-chunk-18" width="40%" height="40%" />
+
+**Exercício**: explorar novos `geom()`'s e mexer nos mapeamentos estéticos desses novos gráficos. [Essa é uma
+boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
 
 <div class='admonition note'>
 <p class='admonition-title'>
@@ -241,12 +244,7 @@ uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>
 </p>
 </div>
 
-**Exercício**: explorar novos `geom()` e mexer nos mapeamentos estéticos desses novos gráficos. [Essa é uma
-boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
-
-## Combinando gráficos
-
-Considere os 2 gráficos a seguir.
+Agora, considere os 2 gráficos a seguir.
 
 
 ```r
@@ -261,12 +259,9 @@ ggplot(mtcars) +
 
 <img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" />
 
-Os gráficos são similares e completaam-se. O da esquerda, mostra como os pontos estão distribuídos. Ele mostra uma tendência de aumento do consumo de combustível de acordo
-com as cilindradas. Já o gráfico da direita resume essa relação. Simplificando-a para uma linha de tendência com alguma margem de confiança. 
+Os gráficos são similares e se completam. O da esquerda, mostra como os pontos estão distribuídos, indicando uma relação entre as cilindradas e o consumo de gasolina. Já o gráfico da direita resume essa relação com uma curva de tendência e sua margem de confiança.
 
-Esses dois gráficos se completam e ficam bons juntos. Com o `ggplot2`, é muito fácil
-sobrepor os dois gráficos, pois ele é pensado para que cada gráfico seja feito com
-uma combinação de camadas. Veja o código abaixo.
+Como o `ggplot2` é pensado para que cada gráfico seja feito como uma combinação de camadas, é muito fácil sobrepor esses dois gráficos.
 
 
 ```r
@@ -296,7 +291,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 Veja que isso gera o mesmo gráfico!
 
 Veja que mesmo com dois `geom`'s, o `ggplot` segue a mesma regra para mapear as
-variáveis para as `aesthetics`. Por exemplo, se você mapear uma variável para 
+variáveis para os aspectos visuais. Por exemplo, se você mapear uma variável para 
 a cor, você obterá o seguinte gráfico.
 
 

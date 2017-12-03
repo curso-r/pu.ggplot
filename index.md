@@ -36,7 +36,7 @@ Além de uma filosofia bem fundamentada, o `ggplot2` ainda traz outras vantagens
 - a estrutura padronizada das funções deixa o aprendizado muito mais intuitivo; e
 - é possível criar uma imensa gama de gráficos com poucas linhas de código.
 
-Para discutir os principais aspectos da construção de gráficos com o `ggplot2`, vamos utilizar a base disponível no objeto `mtcars`. Essa base de 1974 contém dados extraídos da revista *Motor Trend US* sobre o consumo de combustível e características de performance e engenharia de 32 automóveis.
+Para discutir os principais aspectos da construção de gráficos com o `ggplot2`, vamos utilizar inicialmente a base disponível no objeto `mtcars`. Essa base de 1974 contém dados extraídos da revista *Motor Trend US* sobre o consumo de combustível e características de performance e engenharia de 32 automóveis.
 
 Se você não está familiarizado com esta base, rode `help(mtcars)` para mais informações.
 
@@ -48,6 +48,7 @@ install.packages("ggplot2")
 library(ggplot2)
 ```
 
+--------------------------------------------------------------------------------
 
 
 
@@ -104,6 +105,10 @@ ggplot(data = mtcars) +
 <img src="figures//unnamed-chunk-13-1.png" title="plot of chunk unnamed-chunk-13" alt="plot of chunk unnamed-chunk-13" width="40%" height="40%" />
 
 Agora que você já sabe como a estrutura de camadas do `ggplot` funciona, vamos estudar com mais atenção para que serve a função `aes()`.
+
+--------------------------------------------------------------------------------
+
+
 
 
 
@@ -175,6 +180,8 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 ```
 
 <img src="figures//unnamed-chunk-15-1.png" title="plot of chunk unnamed-chunk-15" alt="plot of chunk unnamed-chunk-15" width="40%" height="40%" />
+
+--------------------------------------------------------------------------------
 
 
 
@@ -318,6 +325,8 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 
 Agora, cada grupo de pontos tem uma cor, mas a reta é única para todos os pontos.
 
+--------------------------------------------------------------------------------
+
 
 
 
@@ -341,57 +350,66 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
 automático/manual.
 
+**Exercício**: pesquisar o que faz a função `facet_grid()`.
+
+--------------------------------------------------------------------------------
 
 
 
+## Personalizando
 
-Começando de um simples boxplot feito no `ggplot2` vamos fazer diversas alterações nas legendas. O gráfico inicial é construido da seguinte forma:
+Como exemplo de personalização de um gráfico com o `ggplot2`, vamos partir de um simples boxplot e fazer diversas alterações nas legendas. 
+
+Para isso, utilizaremos nessa seção a base contida no objeto `PlantGrowth`, contendo resultados de um experimento para comparar o crescimento de plantas sob três condições diferentes (um controle e dois tratamentos). Para mais informações, rode `help(PlantGrowth)`.
+
+O gráfico inicial é construído da seguinte forma:
 
 
 ```r
-library(ggplot2)
-# boxplot simples
-bp <- ggplot(data=PlantGrowth, aes(x=group, y=weight, fill=group)) + geom_boxplot()
+bp <- ggplot(data = PlantGrowth, aes(x = group, y = weight, fill = group)) +
+  geom_boxplot()
+
 bp
 ```
 
-<img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="40%" height="40%" />
+<img src="figures//unnamed-chunk-24-1.png" title="plot of chunk unnamed-chunk-24" alt="plot of chunk unnamed-chunk-24" width="40%" height="40%" />
 
-## Removendo totalmente a legenda
+### Removendo totalmente a legenda
 
 Existem diversas maneiras para remover a legenda de um gráfico no `ggplot2`. A forma mais simples é usar `guides(fill = FALSE)` com `fill` sendo o atributo gráfico do qual você deseja remover a legenda.
 
 
 ```r
-# aqui definimos fill = FALSE, porque é o atributo do gráfico que relacionamos 
-# a alguma variável.
 bp + guides(fill = FALSE)
-
-# também é possível remover a legenda por meio da escala de cores
-# aqui também usamos o scale_fill_discrete, porque associamos fill
-# a uma variável anteriormente.
-bp + scale_fill_discrete(guide = F)
 ```
 
-<img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="40%" /><img src="figures//unnamed-chunk-26-2.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="40%" />
+<img src="figures//unnamed-chunk-25-1.png" title="plot of chunk unnamed-chunk-25" alt="plot of chunk unnamed-chunk-25" width="50%" height="40%" />
+
+Também é possível remover a legenda utilizando a função `scale_fill_discrite()`. A família `scale_X_Y()` de funções permite escolher manualmente os parâmetros de cada escala utilizada no gráfico.
 
 
 ```r
-# o comando a seguir remove todas as legendas, não importa o atributo que ela
-# esteja representando.
+bp + scale_fill_discrete(guide = F)
+```
+
+<img src="figures//unnamed-chunk-26-1.png" title="plot of chunk unnamed-chunk-26" alt="plot of chunk unnamed-chunk-26" width="50%" height="40%" />
+
+O comando a seguir remove todas as legendas, não importa o atributo que ela esteja representando.
+
+
+```r
 bp + theme(legend.position="none")
 ```
 
 <img src="figures//unnamed-chunk-27-1.png" title="plot of chunk unnamed-chunk-27" alt="plot of chunk unnamed-chunk-27" width="40%" height="40%" />
 
-
-## Alterando a ordem dos itens
+### Alterando a ordem dos itens
 
 Para alterar a ordem dos itens na legenda do gráfico no `ggplot2`, usamos o comando da escala de cores.
 
 
 ```r
-bp + scale_fill_discrete(breaks=c("trt1","ctrl","trt2"))
+bp + scale_fill_discrete(breaks=c("trt1", "ctrl", "trt2"))
 ```
 
 <img src="figures//unnamed-chunk-28-1.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" width="40%" height="40%" />
@@ -402,111 +420,118 @@ bp
 
 <img src="figures//unnamed-chunk-28-2.png" title="plot of chunk unnamed-chunk-28" alt="plot of chunk unnamed-chunk-28" width="40%" height="40%" />
 
-Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: `scale_fill_manual`, `scale_colour_hue`, `scale_colour_manual`, `scale_shape_discrete`, `scale_linetype_discrete`.
+Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: 
+
+- `scale_fill_manual`
+- `scale_colour_hue`
+- `scale_colour_manual`
+- `scale_shape_discrete`
+- `scale_linetype_discrete`
 
 Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.
 
 
 ```r
-bp + guides(fill = guide_legend(reverse=TRUE))
-bp + scale_fill_discrete(guide = guide_legend(reverse=TRUE))
+bp + guides(fill = guide_legend(reverse = TRUE))
+bp + scale_fill_discrete(guide = guide_legend(reverse = TRUE))
 ```
 
 <img src="figures//unnamed-chunk-29-1.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="50%" height="40%" /><img src="figures//unnamed-chunk-29-2.png" title="plot of chunk unnamed-chunk-29" alt="plot of chunk unnamed-chunk-29" width="50%" height="40%" />
 
-## Removendo os títulos da legenda
+### Removendo os títulos da legenda
 
-Algumas vezes é necessário remover o título das legendas do gráfico feito no `ggplot2`.
-Veja a seguir algumas maneiras:
+Algumas vezes é necessário remover o título das legendas do gráfico feito no `ggplot2`. Veja a seguir algumas maneiras:
 
 
 ```r
-# Remove o título apenas da legenda do preenchimento (fill)
+# Remove o título apenas da legenda do preenchimento (fill).
 bp + guides(fill=guide_legend(title=NULL))
 
-# Remove o título de todas as legendas
-bp + theme(legend.title=element_blank())
+# Remove o título de todas as legendas.
+bp + theme(legend.title = element_blank())
 ```
 
 <img src="figures//unnamed-chunk-30-1.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="50%" height="40%" /><img src="figures//unnamed-chunk-30-2.png" title="plot of chunk unnamed-chunk-30" alt="plot of chunk unnamed-chunk-30" width="50%" height="40%" />
 
-## Modificando texto, cores e rótulos
+### Modificando texto, cores e rótulos
 
-Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções de `scale`. 
+Existem duas formas para modificar os textos e rótulos das legendas. Uma delas é modificar o `data.frame` de forma com que os fatores tenham o mesmo nome que você deseja na legenda. Outra forma é usando as funções `scale_X_Y()`. 
 
-Veja algumas modificações que podem ser feitas por meio das funções de `scale`. Como a variável `group` está associada ao atributo `fill`, usamos as funções `scale_fill_xxx`.
+No nosso exemplo, como a variável `group` está associada ao atributo `fill`, usamos as funções `scale_fill_discrete()`. e `scale_fill_manual()`. Utilizamos a primeira se não quisermos alterar as cores padrão, mas sim que cada fator esteja associado uma cor diferente. Mudamos também os rótolos e o título da legenda.
 
 
 ```r
-# usamos scale_fill_discrete porque não queremos alterar as cores padrão,
-# mas queremos que cada fator esteja associado a uma cor de tom diferente.
-# mudamos aqui os rótulos e o título da legenda.
-bp + scale_fill_discrete(name="Experimental\nCondition",
-                         breaks=c("ctrl", "trt1", "trt2"),
-                         labels=c("Control", "Treatment 1", "Treatment 2"))
+bp + scale_fill_discrete(name = "Experimental\nCondition",
+                         breaks = c("ctrl", "trt1", "trt2"),
+                         labels = c("Control", "Treatment 1", "Treatment 2"))
+```
+
+<img src="figures//unnamed-chunk-31-1.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="50%" height="40%" />
+
+Usamos a segunda se quisermos alterar as cores padrão. Aqui, escolhemos as cores da escala hexadecimal. Veja que isso não aletrou o eixo x do gráfico.
 
 
-# usamos scale_fill_manual porque queremos alterar as cores padrão.
-# aqui escolhemos as cores da escala hexadecimal.
+```r
 bp + scale_fill_manual(values=c("#999999", "#E69F00", "#56B4E9"), 
                        name="Experimental\nCondition",
                        breaks=c("ctrl", "trt1", "trt2"),
                        labels=c("Control", "Treatment 1", "Treatment 2"))
 ```
 
-<img src="figures//unnamed-chunk-31-1.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="50%" height="40%" /><img src="figures//unnamed-chunk-31-2.png" title="plot of chunk unnamed-chunk-31" alt="plot of chunk unnamed-chunk-31" width="50%" height="40%" />
+<img src="figures//unnamed-chunk-32-1.png" title="plot of chunk unnamed-chunk-32" alt="plot of chunk unnamed-chunk-32" width="50%" height="40%" />
 
-Veja que isso não aletrou o eixo X do gráfico.
+### Modificando a aparência da legenda
 
-## Modificando a aparência da legenda
-
-Existem inúmeras modificações que podem ser realizadas na aparência da legenda. Todas elas estão relacionadas à modificação do `element_text`. Veja neste [link](http://docs.ggplot2.org/0.9.2.1/element_text.html) todos os atributos que podem ser modificados.
+Existem inúmeras modificações que podem ser realizadas na aparência da legenda. Todas elas estão relacionadas à modificação do `element_text()`. Veja neste [link](http://docs.ggplot2.org/0.9.2.1/element_text.html) todos os atributos que podem ser modificados.
 
 
 ```r
 # Mudando a aparência do título
-bp + theme(legend.title = element_text(colour="blue", size=16, face="bold"))
-```
-
-<img src="figures//unnamed-chunk-32-1.png" title="plot of chunk unnamed-chunk-32" alt="plot of chunk unnamed-chunk-32" width="40%" height="40%" />
-
-
-```r
-# Mudando a aparência dos rótulos
-bp + theme(legend.text = element_text(colour="blue", size = 16, face = "bold"))
+bp + theme(legend.title = element_text(color = "blue", size = 16, face = "bold"))
 ```
 
 <img src="figures//unnamed-chunk-33-1.png" title="plot of chunk unnamed-chunk-33" alt="plot of chunk unnamed-chunk-33" width="40%" height="40%" />
 
-## Modificando a posição da legenda
 
-É possível controlar a posição da legenda facilmente escolhendo uma das posições (left/right/top/bottom).
+```r
+# Mudando a aparência dos rótulos
+bp + theme(legend.text = element_text(colour = "blue", size = 16, face = "bold"))
+```
+
+<img src="figures//unnamed-chunk-34-1.png" title="plot of chunk unnamed-chunk-34" alt="plot of chunk unnamed-chunk-34" width="40%" height="40%" />
+
+### Modificando a posição da legenda
+
+É possível controlar a posição da legenda facilmente escolhendo uma das posições:  `left`, `right`, `top` e `bottom`.
 
 
 ```r
 bp + theme(legend.position="top")
 ```
 
-<img src="figures//unnamed-chunk-34-1.png" title="plot of chunk unnamed-chunk-34" alt="plot of chunk unnamed-chunk-34" width="40%" height="40%" />
+<img src="figures//unnamed-chunk-35-1.png" title="plot of chunk unnamed-chunk-35" alt="plot of chunk unnamed-chunk-35" width="40%" height="40%" />
 
-Também é possível controlar a posição da legenda de forma precisa usando a função `theme()`. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
+Também é possível controlar a posição da legenda de forma precisa usando a função `theme()`. A legenda será posicionada dentro do gráfico com o ponto central sendo o valor do argumento `legend.position=`. Esses valores são definidos de forma que o ponto (0,0) seja o canto inferior esquerdo e (1,1) seja o canto superior direito.
 
 
 ```r
 bp + theme(legend.position=c(.5, .5))
 ```
 
-<img src="figures//unnamed-chunk-35-1.png" title="plot of chunk unnamed-chunk-35" alt="plot of chunk unnamed-chunk-35" width="40%" height="40%" />
+<img src="figures//unnamed-chunk-36-1.png" title="plot of chunk unnamed-chunk-36" alt="plot of chunk unnamed-chunk-36" width="40%" height="40%" />
+
+--------------------------------------------------------------------------------
 
 
 
 
+## Exercícios
 
+--------------------------------------------------------------------------------
 
+**1.** 
 
-### **Exercício**
-
-1. O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
+O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
 
 
 ```r
@@ -514,20 +539,46 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 
-<img src="figures//unnamed-chunk-38-1.png" title="plot of chunk unnamed-chunk-38" alt="plot of chunk unnamed-chunk-38" width="40%" height="40%" />
+<img src="figures//unnamed-chunk-37-1.png" title="plot of chunk unnamed-chunk-37" alt="plot of chunk unnamed-chunk-37" width="40%" height="40%" />
 
-2. Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
+--------------------------------------------------------------------------------
+
+**2.** 
+
+Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
 estéticas se comportam diferente para variáveis categóricas vs. contínuas?
 
-3. Rode `ggplot(data = mtcars)`. O que você vê?
+--------------------------------------------------------------------------------
 
-4. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
+**3.**
+
+Rode `ggplot(data = mtcars)`. O que você vê?
+
+--------------------------------------------------------------------------------
+
+**4.**
+
+Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
 `nrows`.
 
-5. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+--------------------------------------------------------------------------------
 
-6. Faça um gráfico de dispersão de `mpg` por `qsec`.
+**5.**
 
-7. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
+O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+
+--------------------------------------------------------------------------------
+
+**6.**
+
+Faça um gráfico de dispersão de `mpg` por `qsec`.
+
+--------------------------------------------------------------------------------
+
+**7.**
+
+O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
 gráfico não é útil?
+
+--------------------------------------------------------------------------------
 

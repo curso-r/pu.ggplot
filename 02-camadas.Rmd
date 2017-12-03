@@ -49,3 +49,7 @@ ggplot(data = mtcars) +
 ```
 
 Agora que você já sabe como a estrutura de camadas do `ggplot` funciona, vamos estudar com mais atenção para que serve a função `aes()`.
+
+--------------------------------------------------------------------------------
+
+

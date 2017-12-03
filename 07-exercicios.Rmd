@@ -4,38 +4,56 @@ author: "Daniel Falbel"
 date: 2016-11-22
 ---
 
-```{r, message=FALSE, warning=FALSE, include=FALSE}
-knitr::opts_chunk$set(
-  collapse = TRUE, 
-  out.width = "40%", out.height = "40%",
-  fig.retina = 2
-)
-```
+## Exercícios
 
-```{r, include=FALSE}
-library(ggplot2)
-```
+--------------------------------------------------------------------------------
 
-### **Exercício**
+**1.** 
 
-1. O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
+O que tem de errado no código abaixo? Por que os pontos não ficaram azuis?
 
 ```{r}
 ggplot(data = mpg) + 
   geom_point(mapping = aes(x = displ, y = hwy, color = "blue"))
 ```
 
-2. Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
+--------------------------------------------------------------------------------
+
+**2.** 
+
+Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
 estéticas se comportam diferente para variáveis categóricas vs. contínuas?
 
-3. Rode `ggplot(data = mtcars)`. O que você vê?
+--------------------------------------------------------------------------------
 
-4. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
+**3.**
+
+Rode `ggplot(data = mtcars)`. O que você vê?
+
+--------------------------------------------------------------------------------
+
+**4.**
+
+Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
 `nrows`.
 
-5. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+--------------------------------------------------------------------------------
 
-6. Faça um gráfico de dispersão de `mpg` por `qsec`.
+**5.**
 
-7. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
+O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
+
+--------------------------------------------------------------------------------
+
+**6.**
+
+Faça um gráfico de dispersão de `mpg` por `qsec`.
+
+--------------------------------------------------------------------------------
+
+**7.**
+
+O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
 gráfico não é útil?
+
+--------------------------------------------------------------------------------

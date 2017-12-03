@@ -114,3 +114,5 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 
 Agora, cada grupo de pontos tem uma cor, mas a reta é única para todos os pontos.
 
+--------------------------------------------------------------------------------
+

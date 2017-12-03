@@ -42,7 +42,7 @@ Além de uma filosofia bem fundamentada, o `ggplot2` ainda traz outras vantagens
 - a estrutura padronizada das funções deixa o aprendizado muito mais intuitivo; e
 - é possível criar uma imensa gama de gráficos com poucas linhas de código.
 
-Para discutir os principais aspectos da construção de gráficos com o `ggplot2`, vamos utilizar a base disponível no objeto `mtcars`. Essa base de 1974 contém dados extraídos da revista *Motor Trend US* sobre o consumo de combustível e características de performance e engenharia de 32 automóveis.
+Para discutir os principais aspectos da construção de gráficos com o `ggplot2`, vamos utilizar inicialmente a base disponível no objeto `mtcars`. Essa base de 1974 contém dados extraídos da revista *Motor Trend US* sobre o consumo de combustível e características de performance e engenharia de 32 automóveis.
 
 Se você não está familiarizado com esta base, rode `help(mtcars)` para mais informações.
 
@@ -53,3 +53,4 @@ install.packages("ggplot2")
 library(ggplot2)
 ```
 
+--------------------------------------------------------------------------------

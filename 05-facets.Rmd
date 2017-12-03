@@ -19,3 +19,7 @@ ggplot(mtcars, aes(y = mpg, x = disp)) +
 
 No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
 automático/manual.
+
+**Exercício**: pesquisar o que faz a função `facet_grid()`.
+
+--------------------------------------------------------------------------------

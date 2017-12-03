@@ -22,38 +22,24 @@ ggplot(data = mpg) +
 **2.** 
 
 Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
-estéticas se comportam diferente para variáveis categóricas vs. contínuas?
+estéticas se comportam diferente para variáveis categóricas vs contínuas?
 
 --------------------------------------------------------------------------------
 
 **3.**
 
-Rode `ggplot(data = mtcars)`. O que você vê?
+O que acontece se você rodar `ggplot(data = mtcars)`?
 
 --------------------------------------------------------------------------------
 
 **4.**
 
-Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
-`nrows`.
+Utilizando o `mtcars`, faça um gráfico de dispersão de `mpg` por `qsec`.
 
 --------------------------------------------------------------------------------
 
 **5.**
 
-O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
-
---------------------------------------------------------------------------------
-
-**6.**
-
-Faça um gráfico de dispersão de `mpg` por `qsec`.
-
---------------------------------------------------------------------------------
-
-**7.**
-
-O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
-gráfico não é útil?
+Utilizando o `mtcars`, o que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Por que o gráfico não é útil?
 
 --------------------------------------------------------------------------------

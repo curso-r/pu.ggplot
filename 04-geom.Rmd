@@ -60,7 +60,7 @@ uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>
 
 Agora, considere os 2 gráficos a seguir.
 
-```{r duplochunk, fig.show='hold', out.width = "50%"}
+```{r duplochunk, fig.show='hold', out.width = "50%", message=FALSE, warning=FALSE}
 # esquerda
 ggplot(mtcars) + 
   geom_point(aes(y = mpg, x = disp))

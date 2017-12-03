@@ -49,11 +49,11 @@ bp
 
 Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: 
 
-- `scale_fill_manual`
-- `scale_colour_hue`
-- `scale_colour_manual`
-- `scale_shape_discrete`
-- `scale_linetype_discrete`
+- `scale_fill_manual()`
+- `scale_colour_hue()`
+- `scale_colour_manual()`
+- `scale_shape_discrete()`
+- `scale_linetype_discrete()`
 
 Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.
 

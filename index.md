@@ -261,7 +261,6 @@ ggplot(mtcars) +
 # direita
 ggplot(mtcars) + 
   geom_smooth(aes(y = mpg, x = disp))
-## `geom_smooth()` using method = 'loess'
 ```
 
 <img src="figures//duplochunk-1.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" /><img src="figures//duplochunk-2.png" title="plot of chunk duplochunk" alt="plot of chunk duplochunk" width="50%" height="40%" />
@@ -422,11 +421,11 @@ bp
 
 Dependendo dos aspectos gráficos (cores, formatos, preenchimentos) especificados, você pode precisar usar alguma das seguintes funções: 
 
-- `scale_fill_manual`
-- `scale_colour_hue`
-- `scale_colour_manual`
-- `scale_shape_discrete`
-- `scale_linetype_discrete`
+- `scale_fill_manual()`
+- `scale_colour_hue()`
+- `scale_colour_manual()`
+- `scale_shape_discrete()`
+- `scale_linetype_discrete()`
 
 Você pode também querer inverter a ordem dos itens da legenda. Isso pode ser feito de uma das seguintes maneiras.
 
@@ -546,39 +545,25 @@ ggplot(data = mpg) +
 **2.** 
 
 Mapeie uma variável contínua para uma cor, tamanho e forma. Como essas formas
-estéticas se comportam diferente para variáveis categóricas vs. contínuas?
+estéticas se comportam diferente para variáveis categóricas vs contínuas?
 
 --------------------------------------------------------------------------------
 
 **3.**
 
-Rode `ggplot(data = mtcars)`. O que você vê?
+O que acontece se você rodar `ggplot(data = mtcars)`?
 
 --------------------------------------------------------------------------------
 
 **4.**
 
-Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função
-`nrows`.
+Utilizando o `mtcars`, faça um gráfico de dispersão de `mpg` por `qsec`.
 
 --------------------------------------------------------------------------------
 
 **5.**
 
-O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
-
---------------------------------------------------------------------------------
-
-**6.**
-
-Faça um gráfico de dispersão de `mpg` por `qsec`.
-
---------------------------------------------------------------------------------
-
-**7.**
-
-O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
-gráfico não é útil?
+Utilizando o `mtcars`, o que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Por que o gráfico não é útil?
 
 --------------------------------------------------------------------------------
 

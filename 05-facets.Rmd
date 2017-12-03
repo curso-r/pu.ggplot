@@ -2,3 +2,20 @@
 title: "Visualização"
 author: "Julio Trecenti, Daniel Falbel, William Amorim"
 ---
+
+## Facets
+
+Uma funcionalidade muito útil do `ggplot2` é a possibilidade de usar `facets`.
+Isso auxilia na visualização de diferentes subconjuntos dos dados em gráficos
+separados, permitindo a visualização de comportamentos diferentes dependendo
+do grupo.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  facet_wrap(~am)
+```
+
+No gráfico acima, rapidamente conseguimos visualizar que se o carro não é automático o consumo de combustível é muito menor do que quando o carro é automático. Também conseguimos ver que a inclinação das retas é bem diferente dependendo do carro ser
+automático/manual.

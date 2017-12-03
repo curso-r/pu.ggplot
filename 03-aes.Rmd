@@ -2,3 +2,55 @@
 title: "Visualização"
 author: "Julio Trecenti, Daniel Falbel, William Amorim"
 ---
+
+## Aesthetics
+
+O papel da função `aes()` (de aesthetics, estética em inglês) é indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamnho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você está construindo.
+
+No exemplo anterior, atribuímos aspectos de posição: ao eixo y mapeamos a variável `mpg` (milhas por galão) e ao eixo x a variável `disp` (cilindradas). Note que os valores dos labels não são mapeados por variáveis, mas sim diretamente especificados.
+
+Outro aspecto que pode ser mapeado nesse gráfico é a cor dos pontos:
+
+```{r mapear_am}
+ggplot(data = mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, color = as.factor(am)))
+```
+
+Agora, a variável `am` (tipo de transmissão) foi mapeada à cor dos pontos, com pontos vermelhos correspondendo à transmissão automática (valor 0) e pontos azuis à transmissão manual (valor 1). Observe que inserimos a variável `am` como um fator, pois temos interesse apenas nos valores "0" e "1". No entanto, também podemos mapear uma variável contínua à cor dos pontos:
+
+```{r mapear_cor}
+ggplot(mtcars) + 
+  geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
+```
+
+Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
+
+**Nota**: por *default*, a legenda é insirida automaticamente ao gráfico.
+
+Também podemos mapear o tamanho dos pontos a uma variável de interesse:
+
+```{r mapear_tamanaho}
+ggplot(mtcars) +
+  geom_point(mapping = aes(x = disp, y = mpg, color = cyl, size = wt))
+```
+
+**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa é uma
+boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
+
+Até agora, sempre mapeamos um aspecto estético a uma variável. Muitas vezes 
+queremos apenas modificar um aspecto sem mapeá-lo a variáveis.
+Por exemplo, no gráfico a seguir, modificamos a cor de todos os pontos.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(color = "red")
+```
+
+A principal diferença aqui é que especificamos o argumento `color=` fora da função
+`aes()`. Dessa forma, podemos controlar todos os aspectos de uma forma geométrica.
+
+```{r}
+ggplot(mtcars, aes(y = mpg, x = disp)) + 
+  geom_point(colour = "red", size = 2, shape = 3, alpha = 0.5)
+```
+

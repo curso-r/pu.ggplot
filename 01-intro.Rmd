@@ -25,7 +25,7 @@ Visualizações podem ser uma simples medida resumo (frequência, média, variâ
 
 Mas antes de mais nada, o que é um gráfico estatístico?
 
-## Gráficos em camadas com o ggplot2
+## O que é um gráfico?
 
 A construção de gráficos no R foi revolucionada com a criação do pacote `ggplot2`, fruto da tese de doutorado de [Hadley Wickham](https://github.com/hadley). Essa revolução teve base na filosofia adotada por Hadley ao definir o que deveria ser um gráfico estatístico.
 
@@ -42,7 +42,11 @@ Além de uma filosofia bem fundamentada, o `ggplot2` ainda traz outras vantagens
 - a estrutura padronizada das funções deixa o aprendizado muito mais intuitivo; e
 - é possível criar uma imensa gama de gráficos com poucas linhas de código.
 
-Na próxima seção, vamos conhecer as principais funções do `ggplot2` e começar a construir nossos primeiros gráficos. Para isso, não se esqueça de instalar e carregar o pacote antes de tentar rodas os exemplos.
+Para discutir os principais aspectos da construção de gráficos com o `ggplot2`, vamos utilizar a base disponível no objeto `mtcars`. Essa base de 1974 contém dados extraídos da revista *Motor Trend US* sobre o consumo de combustível e características de performance e engenharia de 32 automóveis.
+
+Se você não está familiarizado com esta base, rode `help(mtcars)` para mais informações.
+
+Na próxima seção, vamos conhecer as principais funções do `ggplot2` e começar a construir nossos primeiros gráficos. Não se esqueça de instalar e carregar o pacote antes de tentar rodas os exemplos.
 
 ```{r, eval=FALSE}
 install.packages("ggplot2")

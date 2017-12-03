@@ -1,7 +1,6 @@
 ---
-title: "Legendas no ggplot2"
-author: "Julio Trecenti, Daniel Falbel"
-date: 2016-11-18
+title: "Visualização"
+author: "Julio Trecenti, Daniel Falbel, William Amorim"
 ---
 
 ```{r, message=FALSE, warning=FALSE, include=FALSE}

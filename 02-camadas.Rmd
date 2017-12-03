@@ -15,9 +15,7 @@ No `ggplot2`, os gráficos são construídos camada por camada (ou, *layers*, em
 ggplot(data = mtcars)
 ```
 
-Apesar de termos passados os dados para a função, precisamos especificar como as obsevações serão mapeadas nos aspectos visuais do gráfico e quais formas geométricas serão utilizadas para isso. 
-
-Cada camada do gráfico representará um tipo de mapeamento ou personalização. O código abaixo é um exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
+Apesar de termos passados os dados para a função, precisamos especificar como as obsevações serão mapeadas nos aspectos visuais do gráfico e quais formas geométricas serão utilizadas para isso. Cada camada do gráfico representará um tipo de mapeamento ou personalização. O código abaixo é um exemplo de um gráfico bem simples, construído a partir das duas principais camadas. 
 
 ```{r grafico1}
 ggplot(data = mtcars) + 
@@ -31,16 +29,16 @@ A figura gerada pelo código acima é um gráfico de dispersão. Observe que:
 - as camadas são somadas com um `+`;
 - o mapeamento na função `geom_point()` recebe a função `aes()`, responsável por descrever como as variáveis serão mapeadas nos aspectos visuais da forma geométrica escolhida, no caso, pontos.
 
+A combinação da função `ggplot()` e de uma ou mais funções `geom_()` definirá o tipo de gráfico gerado.
+
 <div class='admonition note'>
 <p class='admonition-title'>
 Cuidado
 </p>
 <p>
-As camadas dos gráficos são empilhadas utilizando-se o sinal +. Como a estrutura é muito parecida com uma pipe line, é muito comum trocarmos um + por um %>% no meio do código.
+As camadas dos gráficos são empilhadas utilizando-se o sinal +. Como a estrutura é muito parecida com uma pipe line, é comum trocarmos o + por um %>% no meio do código.
 </p>
 </div>
-
-A combinação da função `ggplot()` e de uma ou mais funções `geom_()` definirá o tipo de gráfico gerado.
 
 Podemos acrescentar uma terceira camada ao gráfico, agora com uma personalização. Repare como é simples acrescentar labels ao gráfico com a função `labs()`.
 
@@ -62,6 +60,8 @@ que podem ou devem ser mapeados depende do tipo de gráfico que você deseja faz
 No exemplo acima, atribuímos aspectos de posição: ao eixo y mapeamos a variável `mpg`
 (milhas por galão) e ao eixo x a variável `disp` (cilindradas). Outro aspecto que pode
 ser mapeado nesse gráfico é a cor dos pontos
+
+
 
 
 ```{r mapear_am}

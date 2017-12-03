@@ -5,7 +5,7 @@ author: "Julio Trecenti, Daniel Falbel, William Amorim"
 
 ## Aesthetics
 
-O papel da função `aes()` (de aesthetics, estética em inglês) é indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamnho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você está construindo.
+O papel da função `aes()` (de aesthetics, estética em inglês) é indicar a relação entre os dados e cada aspecto visual do gráfico, como qual variável será representada no eixo x, qual será representada no eixo y, a cor e o tamanho dos componentes geométricos etc. Os aspectos que podem ou devem ser mapeados depende do tipo de gráfico que você está construindo.
 
 No exemplo anterior, atribuímos aspectos de posição: ao eixo y mapeamos a variável `mpg` (milhas por galão) e ao eixo x a variável `disp` (cilindradas). Note que os valores dos labels não são mapeados por variáveis, mas sim diretamente especificados.
 
@@ -23,9 +23,7 @@ ggplot(mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, colour = cyl))
 ```
 
-Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul.
-
-**Nota**: por *default*, a legenda é insirida automaticamente ao gráfico.
+Aqui, o número de cilindros, `cyl`, é representado pela tonalidade da cor azul. Note que, por padrão, a legenda é inserida automaticamente ao gráfico.
 
 Também podemos mapear o tamanho dos pontos a uma variável de interesse:
 
@@ -34,8 +32,13 @@ ggplot(mtcars) +
   geom_point(mapping = aes(x = disp, y = mpg, color = cyl, size = wt))
 ```
 
-**Exercício**: pesquisar mais aspectos que podem ser alterados no gráfico de dispersão. [Essa é uma
-boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
+Segue abaixo uma lista dos aspectos visuais mais utilizados:
+
+- `color=`: altera a cor de formas que não têm área (pontos e retas).
+- `fill=`: altera a cor de formas com área (barras, caixas, densidades, áreas).
+- `size=`: altera o tamanho de formas.
+- `type=`: altera o tipo da forma, geralmente usada para pontos.
+- `linetype=`: altera o tipo da linha.
 
 Até agora, sempre mapeamos um aspecto estético a uma variável. Muitas vezes 
 queremos apenas modificar um aspecto sem mapeá-lo a variáveis.

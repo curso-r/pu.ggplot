@@ -5,18 +5,17 @@ author: "Julio Trecenti, Daniel Falbel, William Amorim"
 
 ## Geoms
 
-Os *geoms* definem qual forma geométrica será utilizada para a visualização dos 
-dados no gráfico. Como já vimos, a função `geom_point()` gera gráficos de dispersão
-transformando pares (x,y) em pontos. Veja a seguir outros *geoms* bastante utilizados:
+Os *geoms* definem qual forma geométrica será utilizada para a visualização das observações. Como já vimos, a função `geom_point()` gera gráficos de dispersão
+transformando pares $(x,y)$ em pontos. Veja a seguir outros *geoms* bastante utilizados:
 
-- `geom_line` - para linhas definidas por pares (x,y)
-- `geom_abline` - para retas definidas por um intercepto e uma inclinação
-- `geom_hline` - para retas horizontais
-- `geom_boxplot` - para boxplots
-- `geom_histogram` - para histogramas
-- `geom_density` - para densidades
-- `geom_area` - para áreas
-- `geom_bar` - para barras
+- `geom_line` - para linhas definidas por pares (x,y).
+- `geom_abline` - para retas definidas por um intercepto e uma inclinação.
+- `geom_hline` - para retas horizontais.
+- `geom_bar` - para barras.
+- `geom_histogram` - para histogramas.
+- `geom_boxplot` - para boxplots.
+- `geom_density` - para densidades.
+- `geom_area` - para áreas.
 
 Veja a seguir como é fácil gerar diversos gráficos diferentes utilizando a mesma estrutura do gráfico de dispersão acima:
 
@@ -25,13 +24,14 @@ ggplot(mtcars) +
   geom_boxplot(aes(x = as.factor(cyl), y = mpg))
 ```
 
-**Note** que para fazer um boxplot para cada grupo, precisamos passar para o aspecto
-x do gráfico uma variável do tipo `factor`.
+Note que para fazer um boxplot para cada grupo, precisamos passar um fator para o aspecto x do gráfico.
 
 ```{r}
 ggplot(mtcars) + 
   geom_histogram(aes(x = mpg))
 ```
+
+Enquanto o gráfico e dispersão demandam o mapeamento das posições x e y, o histograma requer apenas a posição x, já que, pela definação do gráfico, o eixo mostra a frequência de cada classe. O mesmo acontece com o gráfico de barras:
 
 ```{r}
 ggplot(mtcars) + 
@@ -55,14 +55,8 @@ uma função geométrica e MAPPINGS por uma coleção de <b>mapas estéticos</b>
 </p>
 </div>
 
-### Exercícios
-
-1. Rode `ggplot(data = mtcars)`. O que você vê?
-2. Quantas linhas existem no `mtcars`. Quantas colunas? **Dica**: use a função `nrows`.
-3. O que a variável `qsec` descreve. Leia o help do `mtcars` para encontrar.
-4. Faça um gráfico de dispersão de `mpg` por `qsec`
-5. O que acontece se você fizer um gráfico de dispersão de `vs` por `mpg`? Porque o 
-gráfico não é útil?
+**Exercício**: explorar novos `geom()` e mexer nos mapeamentos estéticos desses novos gráficos. [Essa é uma
+boa referência](http://ggplot2.tidyverse.org/articles/ggplot2-specs.html).
 
 ## Combinando gráficos
 
